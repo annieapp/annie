@@ -4,7 +4,7 @@ from flask import Flask
 app = Flask(__name__)
 
 
-@app.route("/status", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def status():
     return "{'status':'analytics server online'}"
 
