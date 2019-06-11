@@ -4,6 +4,14 @@ from flask import Flask
 app = Flask(__name__)
 
 
+class AccessToken:
+    def __init__(self, id):
+        self.id = id
+
+    def get_id(self):
+        return self.id
+
+
 @app.route("/", methods=["GET"])
 def base():
     return "{'status':'analytics server online'}"
