@@ -28,7 +28,7 @@ from datetime import datetime
 from flask import Flask
 from lcbools import true, false
 from filehandlers import AbstractFile, FileHandler
-from . import config as opts
+import config as opts
 import json
 import logging
 import sys
