@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'github-pages'
-# only using GitHub pages gem because it has all the needed dependencies
+gem 'jekyll'
+# ignore this please
