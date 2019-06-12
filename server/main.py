@@ -71,7 +71,7 @@ def new_key():
             continue
         else:
             break
-    keysfile.get_file().wrap().write(f"{genkey}|{keyprivate}")
+    keysfile.get_file().wrap().write(f"{genkey}|{keyprivate}\n")
     keysfile.refresh()
     return json.dumps({
         'result': {
