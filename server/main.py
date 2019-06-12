@@ -26,6 +26,7 @@ def new_key():
         else:
             break
     keysfile.get_file().wrap().write(genkey)
+    keysfile.refresh()
     return f"\{'result': \{'key': '{genkey}', 'message': 'you are now ready to use Annie'}}"
 
 
