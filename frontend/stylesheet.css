@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+.text-dec h1 {
+  color: #303030;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.text-dec h4 {
+  color: #9a9a9a;
+  font-size: 17px;
+  margin-bottom: 25px;
+}
+
+.text-dec p {
+  color: #515151;
+  font-size: 15px;
+}
+
+.text-dec ul li {
+   font-size: 15px;
+   margin-bottom: 6px;
+}
+
+.text-dec h3 {
+   font-weight: 600;
+   margin-bottom: 25px;
+}
+
+.text-dec ul {
+  margin-top:25px;
+}
+
+.text-dec {
+  margin-top: 25px;
+  margin-left: 38%;
+  font-family: 'Raleway' !important;
+}
+
+@media (max-width: 768px) and (min-width: 320px) {
+  .maine-deo {
+    display: flex;
+    flex-direction: column-reverse;	
+  }
+
+  {
+    margin-left: 36px;
+    margin-top: 18%;
+  }
+
+  .text-dec {
+    margin-top: 25px;
+    margin-left: 8%;
+    font-family: 'Raleway' !important;
+  }
+}
