@@ -17,6 +17,11 @@ def base():
     return "{'status':'analytics server online'}"
 
 
+@app.route("/keys/new", methods=["GET", "POST"])
+def new_key():
+    pass
+
+
 @app.route("/ping", methods=["GET", "POST"])
 def ping():
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
