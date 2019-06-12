@@ -12,4 +12,4 @@ Annie is still not yet in stable/beta, so if you want to help us out by opening 
 
 ## Status
 
-[![Deploy Status](https://api.netlify.com/api/v1/badges/c38dadfe-8628-4ba6-9939-24af6108b589/deploy-status)]( https://app.netlify.com/sites/annieapp/deploys)
+[![Deploy Status](https://api.netlify.com/api/v1/badges/f378d32c-8327-4ce6-8700-51553d674b0a/deploy-status)](https://app.netlify.com/sites/annieapp/deploys)
