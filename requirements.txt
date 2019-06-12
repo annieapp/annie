@@ -1,1 +1,2 @@
 Flask==1.0.3
+filehandlers<=1.2
