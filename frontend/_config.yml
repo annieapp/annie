@@ -5,3 +5,4 @@ plugins:
   - jekyll-github-metadata
   - jekyll-redirect-from
 repository: annieapp/annie
+description: Annie is a small, lightweight, and fast analytics program for website owners.
