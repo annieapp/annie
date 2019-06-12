@@ -3,6 +3,8 @@ from datetime import datetime
 from flask import Flask
 from filehandlers import AbstractFile, FileHandler
 import json
+import logging
+import sys
 
 app = Flask(__name__)
 
@@ -53,6 +55,10 @@ def ping():
         'status': 'worked'
     })
 
+
+app.logger.setLevel(logging.DEBUG)
+app.logger.addHandler(logging.FileHandler(filename='annie_backend.log', encoding='utf-8', mode='w'))
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=2000)
