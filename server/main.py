@@ -26,16 +26,19 @@ FROM THE ANNIE TEAM.
 from random import randint
 from datetime import datetime
 from flask import Flask
+from lcbools import true, false
 from filehandlers import AbstractFile, FileHandler
+from . import config as opts
 import json
 import logging
 import sys
 
 app = Flask(__name__)
 
-app.logger.setLevel(logging.DEBUG)
+if opts.verbose:
+    app.logger.setLevel(logging.DEBUG)
+    app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.addHandler(logging.FileHandler(filename='annie_backend.log', encoding='utf-8', mode='w'))
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
 
 keysfile = FileHandler(AbstractFile("tokens.cfg"))
 
@@ -49,6 +52,13 @@ def base():
 
 @app.route("/keys/new", methods=["GET", "POST"])
 def new_key():
+    if opts.manual_keygen:
+        return json.dumps({
+            'result': {
+                'fail': true
+            },
+            'message': 'the owner of this Annie server has disabled automatic key signups - if you are the owner, check your config.py'
+        })
     genkey = ""
     keyprivate = ""
     while True:
@@ -65,8 +75,11 @@ def new_key():
     keysfile.refresh()
     return json.dumps({
         'result': {
-            'key': genkey,
-            'private-key': keyprivate,
+            'fail': false,
+            'auth': {
+                'key': genkey,
+                'private-key': keyprivate
+            },
             'message': 'you are now ready to use the Annie API'
         }
     })
