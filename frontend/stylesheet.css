@@ -1,9 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
+body {
+  margin: 0;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
 .text-dec h1 {
   color: #303030;
   font-weight: 600;
   font-size: 28px;
+}
+
+.col-md-8 {
+  width: 66.66666667%;
+  float: left;
+  position: relative;
+  min-height :1px;
+  padding-right: 15px;
+  padding-left:15px;
 }
 
 .text-dec h4 {
