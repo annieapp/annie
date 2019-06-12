@@ -2,6 +2,7 @@ from random import randint
 from datetime import datetime
 from flask import Flask
 from filehandlers import AbstractFile, FileHandler
+import json
 
 app = Flask(__name__)
 
@@ -10,7 +11,9 @@ keysfile = FileHandler(AbstractFile("tokens.cfg"))
 
 @app.route("/", methods=["GET"])
 def base():
-    return "{'status':'analytics server online'}"
+    return json.dumps({
+        'status': 'analytics server online'
+    })
 
 
 @app.route("/keys/new", methods=["GET", "POST"])
@@ -27,7 +30,12 @@ def new_key():
             break
     keysfile.get_file().wrap().write(genkey)
     keysfile.refresh()
-    return f"\{'result': \{'key': '{genkey}', 'message': 'you are now ready to use Annie'}}"
+    return json.dumps({
+        'result': {
+            'key': genkey,
+            'message': 'you are now ready to use the Annie API'
+        }
+    })
 
 
 @app.route("/ping", methods=["GET", "POST"])
@@ -41,7 +49,9 @@ def ping():
     total = int(open("total.log", "r").readline().rstrip())
     open("total.log", "w").write(str(total + 1))
 
-    return "{'status':'true'}"
+    return json.dumps({
+        'status': 'worked'
+    })
 
 
 if __name__ == "__main__":
