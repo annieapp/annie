@@ -25,20 +25,23 @@ def base():
 @app.route("/keys/new", methods=["GET", "POST"])
 def new_key():
     genkey = ""
+    keyprivate = ""
     while True:
         genkey = str(randint(10, 100000000))
+        keyprivate = str(randint(10, 100000000))
         cache = []
         for i, p in enumerate(keysfile.get_cache()):
-            cache.append(keysfile.get_cache()[i].replace("\n", ""))
-        if genkey in cache:
+            cache.append(keysfile.get_cache()[i].replace("\n", "").split("|"))
+        if genkey in cache or keyprivate in cache:
             continue
         else:
             break
-    keysfile.get_file().wrap().write(genkey)
+    keysfile.get_file().wrap().write(f"{genkey}|{keyprivate}")
     keysfile.refresh()
     return json.dumps({
         'result': {
             'key': genkey,
+            'private-key': keyprivate,
             'message': 'you are now ready to use the Annie API'
         }
     })
