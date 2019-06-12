@@ -2,7 +2,7 @@
 # just ignore this file
 #import sys
 
-#project_home = u'/path/to/annie'
+#project_home = u'/path/to/annie/server'
 #if project_home not in sys.path:
 #    sys.path = [project_home] + sys.path
 
