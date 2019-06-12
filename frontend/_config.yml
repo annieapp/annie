@@ -1,4 +1,7 @@
 name: Annie
 title: Annie
 url: https://annieapp.co
+plugins:
+  - jekyll-github-metadata
+  - jekyll-redirect-from
 repository: annieapp/annie
