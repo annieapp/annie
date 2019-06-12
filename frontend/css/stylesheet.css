@@ -2,6 +2,7 @@ body {
   margin: 0;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  font-family: 'Raleway';
 }
 
 .text-dec h1 {
@@ -47,7 +48,6 @@ body {
 .text-dec {
   margin-top: 25px;
   margin-left: 38%;
-  font-family: 'Raleway' !important;
 }
 
 @media (max-width: 768px) and (min-width: 320px) {
@@ -64,6 +64,5 @@ body {
   .text-dec {
     margin-top: 25px;
     margin-left: 8%;
-    font-family: 'Raleway' !important;
   }
 }
