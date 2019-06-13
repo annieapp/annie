@@ -28,6 +28,7 @@ from datetime import datetime
 from flask import Flask
 from lcbools import true, false
 from filehandlers import AbstractFile, FileHandler
+from statichtml import fourohfour as notfound
 import config as opts
 import json
 import logging
@@ -99,6 +100,11 @@ def ping():
     return json.dumps({
         'status': 'worked'
     })
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return notfound, 404
 
 
 if __name__ == "__main__":
