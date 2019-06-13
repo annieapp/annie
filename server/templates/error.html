@@ -12,7 +12,9 @@
       <div class="col-md-8 col-xs-12">
         <div class="text-dec">
           <h1 style="text-align": right;">{{ code }}</h1>
-          <h3>{{ desc }}</h3>
+          {% if desc %}
+            <h3>{{ desc }}</h3>
+          {% endif %}
         </div>
       </div>
     </div>
