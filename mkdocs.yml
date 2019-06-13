@@ -1,4 +1,5 @@
 site_name: Annie Docs
+
 theme:
   name: 'material'
   palette:
@@ -8,14 +9,49 @@ theme:
     icon: 'cloud'
   feature:
     tabs: true
+
 repo_name: 'annieapp/annie'
 repo_url: 'https://github.com/annieapp/annie'
+
 markdown_extensions:
-  - admonition
+  - markdown.extensions.admonition
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
 site_url: https://docs.annieapp.co
 site_author: Annie Team
 copyright: © Annie 2019-present
+remote_branch: master
+
 extra:
   social:
     - type: 'github'
       link: 'https://github.com/annieapp'
+
+nav:
+  - Home:
+    - Home: index.md
+  - API:
+    - API: api.md
