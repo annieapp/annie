@@ -11,6 +11,6 @@ The following table shows all versions and if security patches will still be app
 ## Reporting a Vulnerability
 
 If you find a vulnerability, please email the team. We accept security emails from [`security@rdil.rocks`](mailto:security@rdil.rocks).
-Please *do not* disclose the vulnerability publicly without the permision of the team.
+Please do *not* disclose the vulnerability publicly without the permision of the team.
 
 > Thank you!
