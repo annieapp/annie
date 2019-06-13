@@ -1,5 +1,6 @@
 deploy_task:
   only_if: $CIRRUS_BRANCH == 'master'
+  skip: "!changesInclude('.cirrus.yml', '*mkdocs.yml', 'docs/**')"
   container:
     image: squidfunk/mkdocs-material:4.3.1
   install_script: pip install --upgrade pymdown-extensions
