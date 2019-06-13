@@ -6,7 +6,16 @@ theme:
     accent: 'pink'
   logo:
     icon: 'cloud'
+  feature:
+    tabs: true
 repo_name: 'annieapp/annie'
 repo_url: 'https://github.com/annieapp/annie'
 markdown_extensions:
   - admonition
+site_url: https://docs.annieapp.co
+site_author: Annie Team
+copyright: © Annie 2019-present
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/annieapp'
