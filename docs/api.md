@@ -7,7 +7,8 @@ The Annie API has a whole set of features. This page documents them.
     Features implemented in later versions then what you may have
     can be documented here.
 
-The hosted API base is `https://api.annieapp.co/`.
+The official hosted API base is `https://api.annieapp.co/`.
+If you are [self hosting](./selfhost.md), your base will be different, but the commands below should be the same.
 
 ## New Key
 
