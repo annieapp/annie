@@ -12,6 +12,8 @@ fourohfour = """
     <div class="maine-deo">
       <div class="col-md-8 col-xs-12">
         <div class="text-dec">
+          <h1 style="text-align": right;">404</h1>
+          <h3>Oh no, it looks like Annie couldn't find the page you are looking for.</h3>
         </div>
       </div>
     </div>
