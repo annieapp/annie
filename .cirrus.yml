@@ -18,9 +18,8 @@ frontend_tests_task:
   env:
     JEKYLL_ENV: production
     NOKOGIRI_USE_SYSTEM_LIBRARIES: false
-    CIRRUS_WORKING_DIR: /tmp/cirrus-ci-build/frontend
   bootstrap_script: |
-    ls
+    cd frontend
     gem install bundler
   bundler_cache:
     folder: /usr/local/bundle
