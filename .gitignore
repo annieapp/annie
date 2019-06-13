@@ -1,1 +1,3 @@
 *.log
+frontend/_site
+frontend/.sass-cache
