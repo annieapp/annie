@@ -25,10 +25,9 @@ FROM THE ANNIE TEAM.
 
 from random import randint
 from datetime import datetime
-from flask import Flask
+from flask import Flask, render_template
 from lcbools import true, false
 from filehandlers import AbstractFile, FileHandler
-from statichtml import fourohfour as notfound
 import config as opts
 import json
 import logging
@@ -104,7 +103,20 @@ def ping():
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return notfound, 404
+    return render_template(
+        "error.html",
+        code="404",
+        desc="Oh no, looks like Annie couln't find the page you are looking for."
+    ), 404
+
+
+@app.errorhandler(500)
+def internal_server_exception(error):
+    return render_template(
+        "error.html",
+        code="500",
+        desc="Oh no, there was an error on our end. Please try again later."
+    ), 500
 
 
 if __name__ == "__main__":
