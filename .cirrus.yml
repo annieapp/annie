@@ -6,5 +6,7 @@ deploy_task:
   env:
     DEPLOY_TOKEN: ENCRYPTED[8b719b51d75561d87baa92c15925d77ddce4a78bd31b1b87b48f1ca0931bd7b968357edf401e0ecbc2a0e8c49ea8cbff]
   deploy_script: |
+    git config --global user.name "Cirrus CI"
+    git config --global user.email "support@rdil.rocks"
     git remote set-url origin https://$DEPLOY_TOKEN@github.com/annieapp/annie/
     mkdocs gh-deploy --force --remote-branch gh-pages
