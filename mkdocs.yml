@@ -6,7 +6,7 @@ theme:
     primary: 'pink'
     accent: 'pink'
   feature:
-    tabs: true
+    tabs: false
   logo: 'images/logo512x512.png'
   favicon: 'assets/images/favicon.ico'
 
