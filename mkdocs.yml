@@ -54,3 +54,4 @@ nav:
   - API: api.md
   - 'Self Hosting (Optional)': selfhost.md
   - Security: security.md
+  - 'Developer Portal': development.md
