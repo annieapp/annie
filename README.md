@@ -1,8 +1,10 @@
-<div style="text-align: center">
-# Annie
+<h1 align="center">
+  Annie
+</h1>
 
-Open source, privacy-focused website analytics program.
-</div>
+<span align="center">
+  Open source, privacy-focused website analytics program.
+</span>
 
 ## What is Annie?
 
