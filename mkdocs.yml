@@ -5,10 +5,9 @@ theme:
   palette:
     primary: 'pink'
     accent: 'pink'
-  logo:
-    icon: 'cloud'
   feature:
     tabs: true
+  logo: 'images/logo512x512.png'
 
 repo_name: 'annieapp/annie'
 repo_url: 'https://github.com/annieapp/annie'
