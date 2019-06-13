@@ -8,3 +8,5 @@ theme:
     icon: 'cloud'
 repo_name: 'annieapp/annie'
 repo_url: 'https://github.com/annieapp/annie'
+markdown_extensions:
+  - admonition
