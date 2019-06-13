@@ -14,7 +14,7 @@ The hosted API base is `https://api.annieapp.co/`.
 To generate a new key, you can visit `/keys/new`. It will return a JSON payload like this if it worked:
 
 ```json
-{'result': { 'fail': false, 'auth': { 'key': 'somekey', 'private-key': 'someotherkey' }, 'message': 'you are now ready to use the Annie API' } }
+{ "result": { "fail": false, "auth": { "key": "somekey", "private-key": "someotherkey" }, "message": "you are now ready to use the Annie API" } }
 ```
 
 !!! warning
