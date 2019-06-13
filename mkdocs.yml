@@ -53,4 +53,4 @@ nav:
   - Home: index.md
   - API: api.md
   - 'Self Hosting (Optional)': selfhost.md
-  - Security: SECURITY.md
+  - Security: security.md
