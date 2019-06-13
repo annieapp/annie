@@ -51,7 +51,5 @@ extra:
       link: 'https://github.com/annieapp'
 
 nav:
-  - Home:
-    - Home: index.md
-  - API:
-    - API: api.md
+  - Home: index.md
+  - API: api.md
