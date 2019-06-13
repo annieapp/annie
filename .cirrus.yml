@@ -29,4 +29,4 @@ frontend_tests_task:
     populate_script: cd frontend && bundler
   build_and_test_script: cd frontend && bundler exec jekyll build
   site_build_artifacts:
-    path: _site/**/**
+    path: frontend/_site/**/**
