@@ -41,7 +41,7 @@ markdown_extensions:
 
 site_url: https://docs.annieapp.co
 site_author: Annie Team
-copyright: © Annie 2019-present
+copyright: Copyright (©) Annie 2019-present
 remote_branch: master
 
 extra:
