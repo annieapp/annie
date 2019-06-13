@@ -2,9 +2,9 @@
   Annie
 </h1>
 
-<span align="center">
+<h3 align="center">
   Open source, privacy-focused website analytics program.
-</span>
+</h3>
 
 ## What is Annie?
 
