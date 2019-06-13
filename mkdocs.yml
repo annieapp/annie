@@ -8,6 +8,7 @@ theme:
   feature:
     tabs: true
   logo: 'images/logo512x512.png'
+  favicon: 'assets/images/favicon.ico'
 
 repo_name: 'annieapp/annie'
 repo_url: 'https://github.com/annieapp/annie'
