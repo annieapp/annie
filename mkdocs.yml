@@ -53,3 +53,4 @@ extra:
 nav:
   - Home: index.md
   - API: api.md
+  - 'Self Hosting (Optional)': selfhost.md
