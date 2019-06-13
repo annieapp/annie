@@ -1,8 +1,7 @@
 <h1 align="center">
   Annie
+  <img src="https://raw.githubusercontent.com/annieapp/annie/master/frontend/assets/logo.png" width="200px" height="200px" alt="logo" />
 </h1>
-
-<img src="https://raw.githubusercontent.com/annieapp/annie/master/frontend/assets/logo.png" width="200px" height="200px" alt="logo" />
 
 <h4 align="center">
   Open source, privacy-focused website analytics program.
