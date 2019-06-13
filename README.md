@@ -1,5 +1,5 @@
 <h1 align="center">
-  Annie
+  Annie<br />
   <img src="https://raw.githubusercontent.com/annieapp/annie/master/frontend/assets/logo.png" width="200px" height="200px" alt="logo" />
 </h1>
 
