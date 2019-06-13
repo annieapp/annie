@@ -20,6 +20,7 @@ frontend_tests_task:
     NOKOGIRI_USE_SYSTEM_LIBRARIES: false
     CIRRUS_WORKING_DIR: /tmp/cirrus-ci-build/frontend
   bootstrap_script: |
+    ls
     gem install bundler
   bundler_cache:
     folder: /usr/local/bundle
