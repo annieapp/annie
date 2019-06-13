@@ -5,6 +5,10 @@ body {
   font-family: 'Raleway';
 }
 
+a {
+  text-decoration:none;
+}
+
 .text-dec h1 {
   color: #303030;
   font-weight: 600;
