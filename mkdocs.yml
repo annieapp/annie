@@ -1,0 +1,10 @@
+site_name: Annie Docs
+theme:
+  name: 'material'
+  palette:
+    primary: 'pink'
+    accent: 'pink'
+  logo:
+    icon: 'cloud'
+repo_name: 'annieapp/annie'
+repo_url: 'https://github.com/annieapp/annie'
