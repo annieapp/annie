@@ -40,6 +40,7 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
+site_description: Annie is a small, lightweight, and fast analytics program for website owners.
 site_url: https://docs.annieapp.co
 site_author: Annie Team
 copyright: Copyright (©) Annie 2019-present
