@@ -4,12 +4,12 @@
 </h1>
 
 <h4 align="center">
-  Open source, privacy-focused website analytics program.
+  Open source, privacy-focused software analytics program.
 </h4>
 
 ## What is Annie?
 
-Annie is a small, lightweight, and fast analytics program for website owners. We hope to replace Google Analytics some day.
+Annie is a small, lightweight, and fast analytics program for software developers. We assist in getting user counts for your websites and apps.
 
 ## Development
 
