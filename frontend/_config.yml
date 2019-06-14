@@ -2,8 +2,6 @@ name: Annie
 title: Annie
 url: https://annieapp.co
 plugins:
-  - jekyll-github-metadata
   - jekyll-sitemap
-repository: annieapp/annie
 description: Annie is a small, lightweight, and fast analytics program for website owners.
 twitter: NerdyJumbo
