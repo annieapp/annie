@@ -32,3 +32,6 @@ verbose = true
 
 # require manual token making
 manual_keygen = false
+
+# development server port:
+dev_port = 2000
