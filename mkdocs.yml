@@ -54,7 +54,7 @@ nav:
   - Home: index.md
   - 'API': api.md
   - 'Self Hosting (Optional)': selfhost.md
-  - 'Contributor Code of Conduct': code_of_conduct.md
   - 'Developer Portal': development.md
   - 'FAQ': faq.md
   - 'Security Policy': security.md
+  - 'Contributor Code of Conduct': code_of_conduct.md
