@@ -36,4 +36,4 @@ project_home = u'/path/to/annie/server'
 if project_home not in sys.path:
     sys.path = [project_home] + sys.path
 
-from server import app as application  # Do NOT remove, it is used by WSGI
+from server import application  # Do NOT remove, it is used by WSGI
