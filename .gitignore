@@ -1,3 +1,7 @@
 *.log
 frontend/_site
 frontend/.sass-cache
+build/
+dist/
+*.egg-info/
+tokens.cfg
