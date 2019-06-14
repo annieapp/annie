@@ -21,10 +21,6 @@ FROM THE ANNIE TEAM.
 
 import setuptools
 
-with open("requirements.txt", mode="r").readlines() as deps:
-    for i, x in enumerate(deps):
-        deps[i] = deps[i].replace("\n", "")
-
 setuptools.setup(
     name='annie-server',
     version='0.0.1',
@@ -36,5 +32,9 @@ setuptools.setup(
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
-    install_requires=deps
+    install_requires=[
+        "Flask==1.0.3",
+        "filehandlers<=1.2",
+        "lcbools>=1.0.2"
+    ]
 )
