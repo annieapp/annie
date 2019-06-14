@@ -29,7 +29,7 @@ setuptools.setup(
     license="See https://github.com/annieapp/annie/blob/master/LICENSE",
     url="https://annieapp.co",
     author_email="me@rdil.rocks",
-    packages=find_packages(),
+    packages=setuptools.find_packages(),
     include_package_data=True,
     zip_safe=False,
     install_requires=[
