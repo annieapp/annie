@@ -29,7 +29,7 @@ setuptools.setup(
     name='annie-server',
     version='0.0.1',
     author="Annie Team",
-    description="Annie Server"
+    description="Annie Server",
     license="See https://github.com/annieapp/annie/blob/master/LICENSE",
     url="https://annieapp.co",
     author_email="me@rdil.rocks",
