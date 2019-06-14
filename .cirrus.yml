@@ -29,3 +29,11 @@ frontend_tests_task:
   build_and_test_script: cd frontend && bundler exec jekyll build
   site_build_artifacts:
     path: frontend/_site/**/**
+
+server_beta_task:
+  container:
+    image: python:slim
+  install_script: python3 -m pip install --upgrade --user setuptools wheel
+  build_script: python3 setup.py sdist
+  download_artifacts:
+    path: dist/**
