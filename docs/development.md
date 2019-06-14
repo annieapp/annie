@@ -51,3 +51,7 @@ $ pip install --upgrade --user -r requirements.txt
 
 When the Flask development server is turned on, it runs on the selected IP (port 2000).
 This can be customized in your `config.py`.
+
+## Debugging
+
+See [Flask's guide](http://flask.pocoo.org/docs/1.0/errorhandling/) on fixing errors.
