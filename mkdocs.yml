@@ -50,6 +50,7 @@ extra:
   social:
     - type: 'github'
       link: 'https://github.com/annieapp'
+  manifest: 'manifest.json'
 
 nav:
   - Home: index.md
