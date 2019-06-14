@@ -46,3 +46,8 @@ $ pip install --upgrade --user -r requirements.txt
     `python3 -m` to the beginning of the command for
     it to work. If that doesn't work, try changing
     `pip` to `pip3` and run that.
+
+## Development Server Port
+
+When the Flask development server is turned on, it runs on the selected IP (port 2000).
+This can be customized in your `config.py`.
