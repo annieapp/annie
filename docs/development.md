@@ -55,3 +55,7 @@ This can be customized in your `config.py`.
 ## Debugging
 
 See [Flask's guide](http://flask.pocoo.org/docs/1.0/errorhandling/) on fixing errors.
+
+## Templates
+
+In `server/templates/`, you will notice some templates. These are made with [Jinja2](http://jinja.pocoo.org/), and used by Flask so our HTML is dynamic.
