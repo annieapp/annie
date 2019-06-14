@@ -23,12 +23,12 @@ SOFTWARE. SELLING THE SOFTWARE IS ALSO NOT ALLOWED WITHOUT WRITTEN PERMISSION
 FROM THE ANNIE TEAM.
 """
 
-from random import randint
 from datetime import datetime
 from flask import Flask, render_template
 from lcbools import true, false
 from filehandlers import AbstractFile, FileHandler
 import config as opts
+import random
 import json
 import logging
 import sys
@@ -41,6 +41,10 @@ if opts.verbose:
 app.logger.addHandler(logging.FileHandler(filename='annie_backend.log', encoding='utf-8', mode='w'))
 
 keysfile = FileHandler(AbstractFile("tokens.cfg"))
+
+
+def genkey():
+    return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(15))
 
 
 @app.route("/", methods=["GET"])
@@ -62,8 +66,8 @@ def new_key():
     genkey = ""
     keyprivate = ""
     while True:
-        genkey = str(randint(10, 100000000))
-        keyprivate = str(randint(10, 100000000))
+        genkey = str(genkey())
+        keyprivate = str(genkey())
         cache = []
         for i, p in enumerate(keysfile.get_cache()):
             cache.append(keysfile.get_cache()[i].replace("\n", "").split("|"))
