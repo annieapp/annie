@@ -1,5 +1,7 @@
 # Security Policy
 
+Annie is dedicated to keeping our products secure. Please read this policy for information on how to stay secure and how to help us patch security issues.
+
 ## Supported Versions
 
 The following table shows all versions and if security patches will still be applied.
