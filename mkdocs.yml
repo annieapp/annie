@@ -55,4 +55,5 @@ nav:
   - API: api.md
   - 'Self Hosting (Optional)': selfhost.md
   - Security: security.md
+  - 'Contributor Code of Conduct': code_of_conduct.md
   - 'Developer Portal': development.md
