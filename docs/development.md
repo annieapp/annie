@@ -24,7 +24,7 @@ Our hosting provider is [PythonAnywhere](https://pythonanywhere.com).
 All the pages on the `www.annieapp.co` domain are hosted on [Netlify](https://netlify.com). The code is located in the `/frontend` directory.
 
 !!! note
-    The homepage funs on [Jekyll](https://jekyllrb.com).
+    The homepage runs on [Jekyll](https://jekyllrb.com).
 
 ### Documentation
 
