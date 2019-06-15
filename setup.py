@@ -34,7 +34,6 @@ setuptools.setup(
     zip_safe=False,
     install_requires=[
         "Flask==1.0.3",
-        "filehandlers<=1.2",
         "lcbools>=1.0.2"
     ]
 )
