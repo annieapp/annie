@@ -84,8 +84,7 @@ def new_key():
             'auth': {
                 'key': genkey,
                 'private-key': keyprivate
-            },
-            'message': 'you are now ready to use the Annie API'
+            }
         }
     })
 
@@ -105,9 +104,10 @@ def connect():
                 'result': {
                     'fail': true
                 },
-                "message":"Invalid or missing API Key"
+                "message": 'Invalid or missing API key'
             }),
-            mimetype='application/json')
+            mimetype='application/json'
+        )
 
     return Response(
         json.dumps({
@@ -124,11 +124,27 @@ def stats():
     try:
         with open('stats.info') as f:
             data = json.load(f)
-        key = request.args.get("key", type = str)
-        private = request.args.get("private", type = str)
+        key = request.args.get("key", type=str)
+        private = request.args.get("private", type=str)
         if data[key][1] == private:
-            return Response(json.dumps({"status":"true", "connections":data[key][0]}), mimetype='application/json')
-        return Response(json.dumps({"status":"false", "message":"Invalid or missing Private Key"}), mimetype='application/json')
+            return Response(
+                json.dumps({
+                    'result' {
+                        'fail': false,
+                        'connections': data[key][0]
+                    }
+                }),
+                mimetype='application/json'
+            )
+        return Response(
+            json.dumps({
+                'result': {
+                    'fail': true,
+                    'message': 'Invalid or missing Private Key'
+                }
+            }),
+            mimetype='application/json'
+        )
     except:
         return Response(
             json.dumps({
