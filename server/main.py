@@ -64,25 +64,25 @@ def new_key():
             },
             'message': 'the owner of this Annie server has disabled automatic key signups in the config.py'
         })
-    genkey = ""
+    keypublic = ""
     keyprivate = ""
     while True:
-        genkey = str(genkey())
+        keypublic = str(genkey())
         keyprivate = str(genkey())
         cache = []
         for i, p in enumerate(keysfile.get_cache()):
             cache.append(keysfile.get_cache()[i].replace("\n", "").split("|"))
-        if genkey in cache or keyprivate in cache:
+        if keypublic in cache or keyprivate in cache:
             continue
         else:
             break
-    keysfile.get_file().wrap().write(f"{genkey}|{keyprivate}\n")
+    keysfile.get_file().wrap().write(f"{keypublic}|{keyprivate}\n")
     keysfile.refresh()
     return json.dumps({
         'result': {
             'fail': false,
             'auth': {
-                'key': genkey,
+                'key': keypublic,
                 'private-key': keyprivate
             }
         }
