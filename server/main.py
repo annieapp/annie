@@ -155,6 +155,15 @@ def stats():
         )
 
 
+@app.errorhandler(403)
+def access_denied(error):
+    return render_template(
+        "error.html",
+        code="403",
+        desc="Oh no, looks like you don't have permission to do that."
+    ), 403
+
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template(
