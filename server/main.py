@@ -89,7 +89,7 @@ def new_key():
     })
 
 
-@app.route("/connect", methods = ["GET", "POST"])
+@app.route("/connect", methods=["GET", "POST"])
 def connect():
     try:
         with open('stats.info') as f:
@@ -119,7 +119,7 @@ def connect():
     )
 
 
-@app.route("/stats", methods = ["GET", "POST"])
+@app.route("/stats", methods=["GET", "POST"])
 def stats():
     try:
         with open('stats.info') as f:
