@@ -68,8 +68,8 @@ def new_key():
     with open('stats.info') as f:
         data = json.load(f)
 
-    key = generateKey()
-    private = generateKey()
+    key = genkey()
+    private = genkey()
     data[key] = (0, private)
 
     with open('stats.info', 'w') as w:
