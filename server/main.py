@@ -163,7 +163,7 @@ def stats():
 def favicon():
     return Response(
         ico_base64,
-        mimetype='image/vnd.microsoft.icon'
+        mimetype='image/x-icon'
     )
 
 
