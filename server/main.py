@@ -119,7 +119,7 @@ def connect():
     )
 
 
-@app.route("/stats", methods=["GET", "POST"])
+@app.route("/stats.json", methods=["GET", "POST"])
 def stats():
     try:
         with open('stats.info') as f:
