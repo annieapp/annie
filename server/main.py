@@ -26,7 +26,6 @@ FROM THE ANNIE TEAM.
 from datetime import datetime
 from flask import Flask, render_template, request, Response
 from lcbools import true, false
-from filehandlers import AbstractFile, FileHandler
 import config as opts
 import random
 import json
@@ -41,8 +40,6 @@ if opts.verbose:
     app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.addHandler(logging.FileHandler(filename='annie_backend.log', encoding='utf-8', mode='w'))
 
-keysfile = FileHandler(AbstractFile("tokens.cfg"))
-
 
 def genkey():
     return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(15))
@@ -51,42 +48,48 @@ def genkey():
 @app.route("/", methods=["GET"])
 def base():
     return json.dumps({
-        'status': 'analytics server online'
+        
     })
+    return Response(
+        json.dumps({
+            "status": "analytics server online"
+        }),
+        mimetype='application/json'
+    )
 
 
 @app.route("/keys/new", methods=["GET", "POST"])
 def new_key():
     if opts.manual_keygen:
         return json.dumps({
-            'result': {
-                'fail': true
+            "result": {
+                "fail": true
             },
-            'message': 'the owner of this Annie server has disabled automatic key signups in the config.py'
+            "message": "the owner of this Annie server has disabled easy key signups in the config.py"
         })
-    keypublic = ""
-    keyprivate = ""
-    while True:
-        keypublic = str(genkey())
-        keyprivate = str(genkey())
-        cache = []
-        for i, p in enumerate(keysfile.get_cache()):
-            cache.append(keysfile.get_cache()[i].replace("\n", "").split("|"))
-        if keypublic in cache or keyprivate in cache:
-            continue
-        else:
-            break
-    keysfile.get_file().wrap().write(f"{keypublic}|{keyprivate}\n")
-    keysfile.refresh()
-    return json.dumps({
-        'result': {
-            'fail': false,
-            'auth': {
-                'key': keypublic,
-                'private-key': keyprivate
-            }
-        }
-    })
+
+    with open('stats.info') as f:
+       data = json.load(f)
+
+   key = generateKey()
+   private = generateKey()
+   data[key] = (0, private)
+
+   with open('stats.info', 'w') as w:
+       json.dump(data, w)
+
+   return Response(
+       json.dumps({
+           "result": {
+               "fail": false,
+               "auth": {
+                   "key": key,
+                   "private-key": private
+               }
+           }
+       }),
+       mimetype='application/json'
+   )
 
 
 @app.route("/connect", methods=["GET", "POST"])
@@ -101,18 +104,18 @@ def connect():
     except:
         return Response(
             json.dumps({
-                'result': {
-                    'fail': true
+                "result": {
+                    "fail": true
                 },
-                "message": 'Invalid or missing API key'
+                "message": "Invalid or missing API key"
             }),
             mimetype='application/json'
         )
 
     return Response(
         json.dumps({
-            'result': {
-                'fail': false
+            "result": {
+                "fail": false
             }
         }),
         mimetype='application/json'
@@ -129,18 +132,18 @@ def stats():
         if data[key][1] == private:
             return Response(
                 json.dumps({
-                    'result': {
-                        'fail': false,
-                        'connections': data[key][0]
+                    "result": {
+                        "fail": false,
+                        "connections": data[key][0]
                     }
                 }),
                 mimetype='application/json'
             )
         return Response(
             json.dumps({
-                'result': {
-                    'fail': true,
-                    'message': 'Invalid or missing Private Key'
+                "result": {
+                    "fail": true,
+                    "message": "Invalid or missing private key"
                 }
             }),
             mimetype='application/json'
@@ -148,8 +151,10 @@ def stats():
     except:
         return Response(
             json.dumps({
-                "status": "false",
-                "message":"Invalid or missing API Key"
+                "result": {
+                    "fail": true,
+                    "message": "Invalid or missing public key"
+                }
             }),
             mimetype='application/json'
         )
