@@ -1,6 +1,8 @@
 <h1 align="center">
   Annie<br />
-  <a href="https://annieapp.co" title="Visit Annie's Website"><img src="https://github.com/annieapp/annie/blob/master/docs/apple-touch-icon.png" width="200px" height="200px" alt="logo" /></a>
+  <a href="https://annieapp.co" title="Visit Annie's Website">
+    <img src="https://raw.githubusercontent.com/annieapp/annie/master/frontend/assets/logo_65percent_downsized.png" width="200px" height="200px" alt="logo" />
+  </a>
 </h1>
 
 <h4 align="center">
