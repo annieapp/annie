@@ -15,7 +15,7 @@ If you are [self hosting](./selfhost.md), your base will be different, but the c
 To generate a new key, you can visit `/keys/new`. It will return a JSON payload like this if it worked:
 
 ```json
-{ 'result': { 'fail': false, 'auth': { 'key': 'somekey', 'private-key': 'someotherkey' } } }
+{ "result": { "fail": false, "auth": { "key": "somekey", "private-key": "someotherkey" } } }
 ```
 
 !!! warning
@@ -32,7 +32,7 @@ If you don't have a public/private key set to get stats from, see the `New Key` 
 It should return a payload like this if it worked:
 
 ```json
-{ 'result': { 'fail': false, 'connections': 'COUNT' } }
+{ "result": { "fail": false, "connections": "COUNT" } }
 ```
 
-Note that `COUNT` will be an integer.
+Note that `COUNT` will be an integer, but is a string just so docs will show the code block.
