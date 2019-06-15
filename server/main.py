@@ -94,7 +94,7 @@ def connect():
     try:
         with open('stats.info') as f:
             data = json.load(f)
-        key = request.args.get("key", type = str)
+        key = request.args.get("key", type=str)
         data[key][0] = data[key][0] + 1
         with open('stats.info', 'w') as w:
             json.dump(data, w)
