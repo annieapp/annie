@@ -47,9 +47,6 @@ def genkey():
 
 @app.route("/", methods=["GET"])
 def base():
-    return json.dumps({
-        
-    })
     return Response(
         json.dumps({
             "status": "analytics server online"
@@ -68,7 +65,7 @@ def new_key():
             "message": "the owner of this Annie server has disabled easy key signups in the config.py"
         })
 
-    with open('stats.info') as f:
+   with open('stats.info') as f:
        data = json.load(f)
 
    key = generateKey()
