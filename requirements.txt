@@ -1,5 +1,4 @@
 Flask==1.0.3
-filehandlers<=1.2
 lcbools>=1.0.2
 mkdocs-material==4.3.1
 pymdown-extensions>0
