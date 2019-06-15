@@ -159,7 +159,7 @@ def page_not_found(error):
     return render_template(
         "error.html",
         code="404",
-        desc="Oh no, looks like Annie couln't find the page you are looking for."
+        desc="Oh no, looks like we couldn't find the page you are looking for."
     ), 404
 
 
