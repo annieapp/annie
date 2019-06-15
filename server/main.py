@@ -151,7 +151,8 @@ def stats():
                 "status": "false",
                 "message":"Invalid or missing API Key"
             }),
-            mimetype='application/json')
+            mimetype='application/json'
+        )
 
 
 @app.errorhandler(404)
