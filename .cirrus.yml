@@ -18,8 +18,7 @@ frontend_tests_task:
   env:
     JEKYLL_ENV: production
     NOKOGIRI_USE_SYSTEM_LIBRARIES: false
-  bootstrap_script: |
-    gem install bundler
+  bootstrap_script: gem install bundler
   bundler_cache:
     folder: /usr/local/bundle
     fingerprint_script: |
@@ -31,6 +30,7 @@ frontend_tests_task:
     path: frontend/_site/**/**
 
 server_beta_task:
+  only_if: $CIRRUS_BRANCH != 'gh-pages'
   container:
     image: python:slim
   install_script: python3 -m pip install --upgrade --user setuptools wheel
