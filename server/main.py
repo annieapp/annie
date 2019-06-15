@@ -67,28 +67,28 @@ def new_key():
             "message": "the owner of this Annie server has disabled easy key signups in the config.py"
         })
 
-   with open('stats.info') as f:
-       data = json.load(f)
+    with open('stats.info') as f:
+        data = json.load(f)
 
-   key = generateKey()
-   private = generateKey()
-   data[key] = (0, private)
+    key = generateKey()
+    private = generateKey()
+    data[key] = (0, private)
 
-   with open('stats.info', 'w') as w:
-       json.dump(data, w)
+    with open('stats.info', 'w') as w:
+        json.dump(data, w)
 
-   return Response(
-       json.dumps({
-           "result": {
-               "fail": false,
-               "auth": {
-                   "key": key,
-                   "private-key": private
-               }
-           }
-       }),
-       mimetype='application/json'
-   )
+    return Response(
+        json.dumps({
+            "result": {
+                "fail": false,
+                "auth": {
+                    "key": key,
+                    "private-key": private
+                }
+            }
+        }),
+        mimetype='application/json'
+    )
 
 
 @app.route("/connect", methods=["GET", "POST"])
