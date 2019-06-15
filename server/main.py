@@ -24,7 +24,7 @@ FROM THE ANNIE TEAM.
 """
 
 from datetime import datetime
-from flask import Flask, render_template
+from flask import Flask, render_template, request, Response
 from lcbools import true, false
 from filehandlers import AbstractFile, FileHandler
 import config as opts
@@ -62,7 +62,7 @@ def new_key():
             'result': {
                 'fail': true
             },
-            'message': 'the owner of this Annie server has disabled automatic key signups - if you are the owner, check your config.py'
+            'message': 'the owner of this Annie server has disabled automatic key signups in the config.py'
         })
     genkey = ""
     keyprivate = ""
@@ -90,20 +90,52 @@ def new_key():
     })
 
 
-@app.route("/ping", methods=["GET", "POST"])
-def ping():
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+@app.route("/connect", methods = ["GET", "POST"])
+def connect():
+    try:
+        with open('stats.info') as f:
+            data = json.load(f)
+        key = request.args.get("key", type = str)
+        data[key][0] = data[key][0] + 1
+        with open('stats.info', 'w') as w:
+            json.dump(data, w)
+    except:
+        return Response(
+            json.dumps({
+                'result': {
+                    'fail': true
+                },
+                "message":"Invalid or missing API Key"
+            }),
+            mimetype='application/json')
 
-    log = open("joins.log", "a")
-    log.write(str(timestamp) + "\n")
-    log.close()
+    return Response(
+        json.dumps({
+            'result': {
+                'fail': false
+            }
+        }),
+        mimetype='application/json'
+    )
 
-    total = int(open("total.log", "r").readline().rstrip())
-    open("total.log", "w").write(str(total + 1))
 
-    return json.dumps({
-        'status': 'worked'
-    })
+@app.route("/stats", methods = ["GET", "POST"])
+def stats():
+    try:
+        with open('stats.info') as f:
+            data = json.load(f)
+        key = request.args.get("key", type = str)
+        private = request.args.get("private", type = str)
+        if data[key][1] == private:
+            return Response(json.dumps({"status":"true", "connections":data[key][0]}), mimetype='application/json')
+        return Response(json.dumps({"status":"false", "message":"Invalid or missing Private Key"}), mimetype='application/json')
+    except:
+        return Response(
+            json.dumps({
+                "status": "false",
+                "message":"Invalid or missing API Key"
+            }),
+            mimetype='application/json')
 
 
 @app.errorhandler(404)
