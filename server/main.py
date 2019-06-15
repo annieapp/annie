@@ -129,7 +129,7 @@ def stats():
         if data[key][1] == private:
             return Response(
                 json.dumps({
-                    'result' {
+                    'result': {
                         'fail': false,
                         'connections': data[key][0]
                     }
