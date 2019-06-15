@@ -10,6 +10,22 @@ The Annie API has a whole set of features. This page documents them.
 The official hosted API base is `https://api.annieapp.co/`.
 If you are [self hosting](./selfhost.md), your base will be different, but the commands below should be the same.
 
+## Common Response
+
+All of our JSON endpoints return this at the very least:
+
+```json
+{ "result": { "fail": false } }
+```
+
+or if it did fail:
+
+```json
+{ "result": { "fail": true } }
+```
+
+This can help for easily determining if something worked or not!
+
 ## New Key
 
 To generate a new key, you can visit `/keys/new`. It will return a JSON payload like this if it worked:
