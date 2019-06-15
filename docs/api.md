@@ -23,6 +23,20 @@ To generate a new key, you can visit `/keys/new`. It will return a JSON payload 
     you won't be able to see them
     again!
 
+## Log a "use" or page visit
+
+To get Annie to increase the number for 'joins' as they will be called here, you can use the `/connect?key=ANNIE_PUBLIC_KEY` endpoint.
+
+If you don't have a public/private key set to get stats from, see the `New Key` section above.
+
+If all is well, a payload like this will be sent back:
+
+```json
+{ "result": { "fail": false } }
+```
+
+Simple as that.
+
 ## Usage Statistics
 
 To get how many users Annie has logged join requests for, you can use the `/stats.json?key=YOUR_ANNIE_PUBLIC_KEY&private=YOUR_ANNIE_PRIVATE_KEY` endpoint.
