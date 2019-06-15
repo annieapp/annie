@@ -64,7 +64,7 @@ CLASSIFIERS = [
 
 setuptools.setup(
     name='annie-server',
-    version='0.3',
+    version='0.4',
     author="Annie Team",
     description="Annie Server",
     license="See https://github.com/annieapp/annie/blob/master/LICENSE",
