@@ -100,6 +100,46 @@ def new_key():
     )
 
 
+@app.route("/keys/delete", methods=["GET", "POST"])
+def delkey():
+    with open("stats.info", "f") as f:
+        data = json.load(f)
+    thekey = request.args.get("key", type=str)
+    privatekey = request.args.get("private", type=str)
+    try:
+        if data[thekey][1] == privatekey:
+            # private key checks out
+            del data[thekey]
+            return Response(
+                json.dumps({
+                    "result": {
+                        "fail": false
+                    }
+                }),
+                mimetype='application/json'
+            )
+        else:
+            return Response(
+                json.dumps({
+                    "result": {
+                        "fail": true
+                    },
+                    "message": "Invalid private key"
+                }),
+                mimetype='application/json'
+            )
+    except:
+        return Response(
+            json.dumps({
+                "result": {
+                    "fail": true
+                },
+                "message": "Public key not valid"
+            }),
+            mimetype='application/json'
+        )
+
+
 @app.route("/connect", methods=["GET", "POST"])
 def connect():
     try:
