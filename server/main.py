@@ -40,14 +40,6 @@ if opts.verbose:
     app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.addHandler(logging.FileHandler(filename='annie_backend.log', encoding='utf-8', mode='w'))
 
-with open("stats.info", mode="a") as f:
-    try:
-        # see if its valid json
-        json.load(f)
-    except Exception:
-        # okay, plain json it is
-        f.write("{}")
-
 
 def genkey():
     return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(15))
