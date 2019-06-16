@@ -102,6 +102,8 @@ def delkey():
         if data[thekey][1] == privatekey:
             # private key checks out
             data.pop(thekey)
+            with open('stats.info', 'w') as w:
+                json.dump(data, w)
             return Response(
                 json.dumps({
                     "result": {
