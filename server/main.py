@@ -40,8 +40,8 @@ if opts.verbose:
     app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.addHandler(logging.FileHandler(filename='annie_backend.log', encoding='utf-8', mode='w'))
 
-
-open("stats.info", mode="a")
+with open("stats.info", mode="a") as f:
+    app.logger.warn(f.readlines())
 
 
 def genkey():
