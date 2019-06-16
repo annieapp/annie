@@ -48,19 +48,15 @@ It will return a JSON payload like the common response success if it worked.
 !!! warning
     You can't reverse this once done.
 
-## Log a "use" or page visit
+## Log a "use" or "page visit"
 
 To get Annie to increase the number for 'joins' as they will be called here, you can use the `/connect?key=ANNIE_PUBLIC_KEY` endpoint.
 
 If you don't have a public/private key set to get stats from, see the `New Key` section above.
 
-If all is well, a payload like this will be sent back:
+If all is well, a payload like the common response success will be sent back.
 
-```json
-{ "result": { "fail": false } }
-```
-
-Simple as that.
+Simple as that!
 
 ## Usage Statistics
 
