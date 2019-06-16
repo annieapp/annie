@@ -8,7 +8,9 @@ The following table shows all versions and if security patches will still be app
 
 | Version        | Supported          |
 | -------------- | ------------------ |
-| Alpha Builds   | :white_check_mark: |
+| Alpha Builds   | :x:                |
+| Beta Builds    | :x:                |
+| 1.0.x          | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
