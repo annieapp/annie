@@ -41,6 +41,9 @@ if opts.verbose:
 app.logger.addHandler(logging.FileHandler(filename='annie_backend.log', encoding='utf-8', mode='w'))
 
 
+open("stats.info", mode="a")
+
+
 def genkey():
     return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(15))
 
@@ -98,6 +101,9 @@ def delkey():
         data = json.load(f)
     thekey = request.args.get("key", type=str)
     privatekey = request.args.get("private", type=str)
+    if data[thekey][1] == privatekey:
+        # private key checks out
+        del data[thekey]
 
 
 @app.route("/connect", methods=["GET", "POST"])
