@@ -41,6 +41,9 @@ if opts.verbose:
 app.logger.addHandler(logging.FileHandler(filename='annie_backend.log', encoding='utf-8', mode='w'))
 
 
+open("stats.info", mode="a")
+
+
 def genkey():
     return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(15))
 
@@ -58,12 +61,15 @@ def base():
 @app.route("/keys/new", methods=["GET", "POST"])
 def new_key():
     if opts.manual_keygen:
-        return json.dumps({
-            "result": {
-                "fail": true
-            },
-            "message": "the owner of this Annie server has disabled easy key signups in the config.py"
-        })
+        return Response(
+            json.dumps({
+                "result": {
+                    "fail": true
+                },
+                "message": "the owner of this Annie server has disabled easy key signups in the config."
+            }),
+            mimetype='application/json'
+        )
 
     with open('stats.info') as f:
         data = json.load(f)
