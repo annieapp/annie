@@ -39,6 +39,15 @@ To generate a new key, you can visit `/keys/new`. It will return a JSON payload 
     you won't be able to see them
     again!
 
+## Delete a Key
+
+If you want to erase a key, visit `/keys/delete?key=ANNIE_PUBLIC_KEY&private=ANNIE_PRIVATE_KEY`.
+
+It will return a JSON payload like the common response success if it worked.
+
+!!! warning
+    You can't reverse this once done.
+
 ## Log a "use" or page visit
 
 To get Annie to increase the number for 'joins' as they will be called here, you can use the `/connect?key=ANNIE_PUBLIC_KEY` endpoint.
