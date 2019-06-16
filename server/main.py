@@ -41,9 +41,6 @@ if opts.verbose:
 app.logger.addHandler(logging.FileHandler(filename='annie_backend.log', encoding='utf-8', mode='w'))
 
 
-open("stats.info", mode="a")
-
-
 def genkey():
     return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(15))
 
@@ -93,6 +90,48 @@ def new_key():
         }),
         mimetype='application/json'
     )
+
+
+@app.route("/keys/delete", methods=["GET", "POST"])
+def delkey():
+    with open("stats.info", "r") as f:
+        data = json.load(f)
+    thekey = request.args.get("key", type=str)
+    privatekey = request.args.get("private", type=str)
+    try:
+        if data[thekey][1] == privatekey:
+            # private key checks out
+            data.pop(thekey)
+            with open('stats.info', 'w') as w:
+                json.dump(data, w)
+            return Response(
+                json.dumps({
+                    "result": {
+                        "fail": false
+                    }
+                }),
+                mimetype='application/json'
+            )
+        else:
+            return Response(
+                json.dumps({
+                    "result": {
+                        "fail": true
+                    },
+                    "message": "Invalid private key"
+                }),
+                mimetype='application/json'
+            )
+    except:
+        return Response(
+            json.dumps({
+                "result": {
+                    "fail": true
+                },
+                "message": "Public key not valid"
+            }),
+            mimetype='application/json'
+        )
 
 
 @app.route("/connect", methods=["GET", "POST"])
