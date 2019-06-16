@@ -101,7 +101,7 @@ def delkey():
     try:
         if data[thekey][1] == privatekey:
             # private key checks out
-            del data[thekey]
+            data.pop(thekey)
             return Response(
                 json.dumps({
                     "result": {
