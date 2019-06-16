@@ -2,5 +2,3 @@ source 'https://rubygems.org'
 
 gem 'jekyll'
 gem 'jekyll-sitemap'
-gem 'wdm', :install_if => Gem.win_platform?
-# ignore this please
