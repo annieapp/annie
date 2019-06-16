@@ -1,0 +1,5 @@
+[[redirects]]
+from = "/docs"
+to = "https://docs.annieapp.co"
+status = 301
+force = true
