@@ -94,7 +94,7 @@ def new_key():
 
 @app.route("/keys/delete", methods=["GET", "POST"])
 def delkey():
-    with open("stats.info", "f") as f:
+    with open("stats.info", "r") as f:
         data = json.load(f)
     thekey = request.args.get("key", type=str)
     privatekey = request.args.get("private", type=str)
