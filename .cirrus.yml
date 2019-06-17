@@ -1,12 +1,9 @@
-docs_template: &DOCS_TEMPLATE
+docs_deploy_task:
   env:
     DEPLOY_TOKEN: ENCRYPTED[8b719b51d75561d87baa92c15925d77ddce4a78bd31b1b87b48f1ca0931bd7b968357edf401e0ecbc2a0e8c49ea8cbff]
   container:
     image: squidfunk/mkdocs-material:4.4.0
   install_script: pip install --upgrade pymdown-extensions
-
-docs_deploy_task:
-  << : *DOCS_TEMPLATE
   skip: $CIRRUS_BRANCH != 'master' || "!changesInclude('.cirrus.yml', 'mkdocs.yml', 'docs/**')"
   deploy_script: |
     git config --global user.name "Cirrus CI"
@@ -15,7 +12,9 @@ docs_deploy_task:
     mkdocs gh-deploy --force --remote-branch gh-pages
 
 docs_test_task:
-  << : *DOCS_TEMPLATE
+  container:
+    image: squidfunk/mkdocs-material:4.4.0
+  install_script: pip install --upgrade pymdown-extensions
   build_script: mkdocs build
   docs_build_artifacts:
     path: site/**
