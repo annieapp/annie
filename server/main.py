@@ -55,6 +55,11 @@ def base():
     )
 
 
+@app.route("/robots.txt", methods=["GET"])
+def disallow_search_engine_crawling():
+    return render_template("robots.txt")
+
+
 @app.route("/keys/new", methods=["GET", "POST"])
 def new_key():
     if opts.manual_keygen:
