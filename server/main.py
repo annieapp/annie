@@ -73,7 +73,7 @@ def new_key():
 
     key = genkey()
     private = genkey()
-    data[key] = (0, private)
+    data[key] = (0, private, "")
 
     with open('stats.info', 'w') as w:
         json.dump(data, w)
@@ -141,6 +141,7 @@ def connect():
             data = json.load(f)
         key = request.args.get("key", type=str)
         data[key][0] = data[key][0] + 1
+        data[key][2] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         with open('stats.info', 'w') as w:
             json.dump(data, w)
     except:
