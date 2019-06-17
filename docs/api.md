@@ -72,3 +72,10 @@ It should return a payload like this if it worked:
 
 Note that `COUNT` will be an integer, but is a string just so docs will show the code block.
 As for the `"last-join"` element, it will tell you of the most *recent* join request.
+
+### Visual Endpoint
+
+If you want that data in a more visually appealing format,
+you can simply use the `/stats?key=PUBLIC_ANNIE_KEY&private=PRIVATE_ANNIE_KEY` endpoint.
+
+It will render the JSON data in a box layout.
