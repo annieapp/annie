@@ -71,3 +71,4 @@ It should return a payload like this if it worked:
 ```
 
 Note that `COUNT` will be an integer, but is a string just so docs will show the code block.
+As for the `"last-join"` element, it will tell you of the most *recent* join request.
