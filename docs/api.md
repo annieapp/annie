@@ -67,7 +67,7 @@ If you don't have a public/private key set to get stats from, see the `New Key` 
 It should return a payload like this if it worked:
 
 ```json
-{ "result": { "fail": false, "connections": "COUNT" } }
+{ "result": { "fail": false, "connections": "COUNT", "last-join": "SomeDateAndTime" } }
 ```
 
 Note that `COUNT` will be an integer, but is a string just so docs will show the code block.
