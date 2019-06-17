@@ -57,7 +57,10 @@ def base():
 
 @app.route("/robots.txt", methods=["GET"])
 def disallow_search_engine_crawling():
-    return render_template("robots.txt")
+    return Response(
+        render_template("robots.txt"),
+        mimetype="text/plain"
+    )
 
 
 @app.route("/keys/new", methods=["GET", "POST"])
