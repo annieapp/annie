@@ -7,7 +7,7 @@ docs_template: &DOCS_TEMPLATE
 
 docs_deploy_task:
   << : *DOCS_TEMPLATE
-  skip: ($CIRRUS_BRANCH != 'master') || "!changesInclude('.cirrus.yml', 'mkdocs.yml', 'docs/**')"
+  skip: $CIRRUS_BRANCH != 'master' || "!changesInclude('.cirrus.yml', 'mkdocs.yml', 'docs/**')"
   deploy_script: |
     git config --global user.name "Cirrus CI"
     git config --global user.email "support@rdil.rocks"
