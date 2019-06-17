@@ -62,9 +62,17 @@ CLASSIFIERS = [
     "Environment :: Web Environment"
 ]
 
+URLs = \
+    {
+        "Bug Tracker": "https://github.com/annieapp/annie/issues",
+        "Documentation": "https://docs.annieapp.co",
+        "Source Code": "https://github.com/annieapp/annie",
+        "License": "https://github.com/annieapp/annie/blob/master/LICENSE",
+    }
+
 setuptools.setup(
     name='annie-server',
-    version='1.1.0',
+    version='1.2.0',
     author="Annie Team",
     description="Annie Server",
     license="See https://github.com/annieapp/annie/blob/master/LICENSE",
@@ -78,6 +86,7 @@ setuptools.setup(
         "lcbools>=1.0.2"
     ],
     classifiers=CLASSIFIERS,
+    project_urls=URLs,
     long_description="See https://annieapp.co",
     long_description_content_type="text/markdown"
 )
