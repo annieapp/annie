@@ -6,12 +6,13 @@ Annie is dedicated to keeping our products secure. Please read this policy for i
 
 The following table shows all versions and if security patches will still be applied.
 
-| Version        | Supported          |
-| -------------- | ------------------ |
-| Alpha Builds   | :x:                |
-| Beta Builds    | :x:                |
-| 1.0.x          | :white_check_mark: |
-| 1.1.x          | :white_check_mark: |
+| Version        | Supported          | EOL          |
+| -------------- | ------------------ | ------------ |
+| Alpha Builds   | :x:                | June 15 2019 |
+| Beta Builds    | :x:                | June 15 2019 |
+| 1.0.x          | :white_check_mark: | June 19 2019 |
+| 1.1.x          | :white_check_mark: | June 23 2019 |
+| 1.2.x          | :white_check_mark: | July 30 2019 |
 
 ## Reporting a Vulnerability
 

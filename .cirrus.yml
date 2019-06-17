@@ -1,20 +1,26 @@
-deploy_task:
-  only_if: $CIRRUS_BRANCH == 'master'
-  skip: "!changesInclude('.cirrus.yml', 'mkdocs.yml', 'docs/**')"
-  container:
-    image: squidfunk/mkdocs-material:4.3.1
-  install_script: pip install --upgrade pymdown-extensions
+container:
+  image: squidfunk/mkdocs-material:4.4.0
+
+docs_deploy_task:
   env:
     DEPLOY_TOKEN: ENCRYPTED[8b719b51d75561d87baa92c15925d77ddce4a78bd31b1b87b48f1ca0931bd7b968357edf401e0ecbc2a0e8c49ea8cbff]
+  install_script: pip install --upgrade pymdown-extensions
+  skip: $CIRRUS_BRANCH != 'master'
   deploy_script: |
     git config --global user.name "Cirrus CI"
     git config --global user.email "support@rdil.rocks"
     git remote set-url origin https://$DEPLOY_TOKEN@github.com/annieapp/annie/
     mkdocs gh-deploy --force --remote-branch gh-pages
 
+docs_test_task:
+  install_script: pip install --upgrade pymdown-extensions
+  build_script: mkdocs build
+  docs_build_artifacts:
+    path: site/**
+
 frontend_tests_task:
   container:
-    image: ruby:latest
+    image: ruby:slim
   env:
     JEKYLL_ENV: production
     NOKOGIRI_USE_SYSTEM_LIBRARIES: false
