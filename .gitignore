@@ -3,5 +3,6 @@ frontend/_site
 frontend/.sass-cache
 build/
 dist/
+site/
 *.egg-info/
 tokens.cfg
