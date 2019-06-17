@@ -177,7 +177,8 @@ def stats():
                 json.dumps({
                     "result": {
                         "fail": false,
-                        "connections": data[key][0]
+                        "connections": data[key][0],
+                        "last-join": data[key][2]
                     }
                 }),
                 mimetype='application/json'
