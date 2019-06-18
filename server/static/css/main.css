@@ -1,5 +1,6 @@
 :root {
     --left-sidebar: 150px;
+    --foreground-color: #687589;
 }
 
 body{
@@ -14,7 +15,7 @@ a {
 .top-navbar {
     width: 100%;
     height: 80px;
-    background-color: #687589;
+    background-color: var(--foreground-color);
 }
 
 .logo {
@@ -43,7 +44,7 @@ ul {
     margin: 0;
     padding: 0;
     width: var(--left-sidebar);
-    background-color: #687589;
+    background-color: var(--foreground-color);
     position: fixed;
     height: 100%;
     overflow: auto
