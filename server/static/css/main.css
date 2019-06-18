@@ -3,11 +3,11 @@
 }
 
 body{
-    margin: 0
+    margin: 0;
+    font-family: 'Open Sans', sans-serif
 }
 
 a {
-    font-family: 'Open Sans', sans-serif;
     color: white;
 }
 
@@ -31,11 +31,11 @@ a {
     line-height: 80px;
     color: white;
     text-decoration: none;
-    float: right;
+    float: right
 }
 
 .top-navbar > a:hover {
-    color: #dbdbdb;
+    color: #dbdbdb
 }
 
 ul {
@@ -46,21 +46,20 @@ ul {
     background-color: #687589;
     position: fixed;
     height: 100%;
-    overflow: auto;
+    overflow: auto
 }
 
 li a {
     display: block;
     padding: 8px 16px;
-    text-decoration: none;
+    text-decoration: none
 }
 
 li a:hover {
     background-color: #8795ad;
-    color: white;
+    color: white
 }
 
 .main {
-    font-family: 'Open Sans', sans-serif;
-    margin-left: calc(var(--left-sidebar) + 20px);
+    margin-left: calc(var(--left-sidebar) + 20px)
 }
