@@ -3,7 +3,7 @@
   <a href="https://annieapp.co" title="Visit Annie's Website">
     <img src="https://raw.githubusercontent.com/annieapp/annie/master/frontend/assets/logo_65percent_downsized.png" width="200px" height="200px" alt="logo" />
   </a><br>
-  <img src="https://img.shields.io/website/https/annieapp.co.svg?style=for-the-badge" /> <img src="https://img.shields.io/cirrus/github/annieapp/annie.svg?style=for-the-badge&task=docs_deploy" />
+  <img src="https://img.shields.io/website/https/annieapp.co.svg?style=for-the-badge" /> <img src="https://img.shields.io/cirrus/github/annieapp/annie.svg?label=docs%20deploy&style=for-the-badge&task=docs_deploy" />
 </h1>
 
 <h4 align="center">
