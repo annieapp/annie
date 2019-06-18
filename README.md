@@ -23,4 +23,4 @@ Annie is still not yet in stable/beta, so if you want to help us out by opening 
 [![](https://api.netlify.com/api/v1/badges/f378d32c-8327-4ce6-8700-51553d674b0a/deploy-status)](https://app.netlify.com/sites/annieapp/deploys)
 
 #### Documentation:
-[![](https://api.cirrus-ci.com/github/annieapp/annie.svg?task=deploy)](https://docs.annieapp.co)
+![](https://img.shields.io/cirrus/github/annieapp/annie.svg?style=popout&task=docs_deploy)
