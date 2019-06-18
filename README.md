@@ -1,8 +1,8 @@
 <h1 align="center">
   Annie<br />
-  <a href="https://annieapp.co" title="Visit Annie's Website">
-    <img src="https://raw.githubusercontent.com/annieapp/annie/master/frontend/assets/logo_65percent_downsized.png" width="200px" height="200px" alt="logo" />
-  </a>
+  <a href="https://annieapp.co" title="Visit Annie's Website"><img src="https://raw.githubusercontent.com/annieapp/annie/master/frontend/assets/logo_65percent_downsized.png" width="200px" height="200px" alt="logo" /></a>
+  <br>
+  <img src="https://img.shields.io/website/https/annieapp.co.svg?style=for-the-badge&logo=netlify" /> <img src="https://img.shields.io/cirrus/github/annieapp/annie.svg?label=docs%20deploy&style=for-the-badge&task=docs_deploy&logo=github" /> <img src="https://img.shields.io/codacy/grade/3b7396540d8a4ab79c41f0042644e523.svg?logo=codacy&style=for-the-badge" />
 </h1>
 
 <h4 align="center">
@@ -15,12 +15,4 @@ Annie is a small, lightweight, and fast analytics program for software developer
 
 ## Development
 
-Annie is still not yet in stable/beta, so if you want to help us out by opening a PR it would be great!
-
-## Status
-
-#### Frontend:
-[![](https://api.netlify.com/api/v1/badges/f378d32c-8327-4ce6-8700-51553d674b0a/deploy-status)](https://app.netlify.com/sites/annieapp/deploys)
-
-#### Documentation:
-![](https://img.shields.io/cirrus/github/annieapp/annie.svg?style=popout&task=docs_deploy)
+Annie is always open for PRs, so go ahead. We have a developer guide located [here](https://docs.annieapp.co/development/).
