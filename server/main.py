@@ -221,7 +221,7 @@ def statistics_visual():
         private = request.args.get("private", type=str)
         if data[key][1] == private:
             return render_template(
-                "stats.html",
+                "index.html",
                 key=key,
                 joinscount=data[key][0],
                 latestjoindate=data[key][2]
