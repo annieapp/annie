@@ -130,7 +130,7 @@ def delkey():
                 }),
                 mimetype='application/json'
             )
-    except:
+    except KeyError:
         return Response(
             json.dumps({
                 "result": {
