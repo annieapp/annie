@@ -36,7 +36,7 @@ app = Flask(__name__)
 
 if os.getenv("CI") == None:
     app.logger.setLevel(logging.DEBUG)
-app.logger.addHandler(logging.StreamHandler(sys.stdout))
+    app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.addHandler(logging.FileHandler(filename='annie_backend.log', encoding='utf-8', mode='w'))
 
 
