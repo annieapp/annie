@@ -93,7 +93,7 @@ setuptools.setup(
     classifiers=CLASSIFIERS,
     project_urls=URLs,
     download_url="https://github.com/annieapp/annie/releases",
-    keywords=["annie", "server", "analytics", "monitoring"]
+    keywords=["annie", "server", "analytics", "monitoring"],
     long_description="See https://annieapp.co",
     long_description_content_type="text/markdown"
 )
