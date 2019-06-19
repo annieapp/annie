@@ -1,6 +1,7 @@
 import unittest
 import logging
 import json
+from lcbools import true, false
 from flask import Response
 try:
     import server
@@ -12,7 +13,11 @@ class Tests(unittest.TestCase):
         self.app = server.application
 
     def test_key_generation(self):
-        self.assertEqual(len(server.application.genkey()), 15)
+        self.assertEqual(len(server.genkey()), 15)
+
+    def test_lowercase_boolean_values(self):
+        self.assertTrue(true)
+        self.assertFalse(false)
 
     def test_common_errors(self):
         self.assertEqual(
