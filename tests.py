@@ -55,7 +55,7 @@ class Tests(unittest.TestCase):
         for i in range(18):
             jdata = json.load(self.client.get("/connect", params={"key": self.tempauth[0]})),
             self.assertIn(
-                jdata['result']
+                jdata['result'],
                 json.dumps({
                     "result": {"fail": false}
                 })
