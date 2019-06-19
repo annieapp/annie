@@ -1,5 +1,6 @@
 import unittest
 import logging
+import json
 from flask import Response
 try:
     import server
@@ -11,7 +12,7 @@ class Tests(unittest.TestCase):
         self.app = server.application
 
     def test_key_generation(self):
-        self.assertEqual(len(self.app.genkey()), 15)
+        self.assertEqual(len(server.application.genkey()), 15)
 
     def test_common_errors(self):
         self.assertEqual(
@@ -41,7 +42,7 @@ class Tests(unittest.TestCase):
 
     def test_logger(self):
         self.assertIsInstance(self.app.logger, logging.Logger)
-        self.assertNotNone(self.app.logger)
+        self.assertIsNotNone(self.app.logger)
 
 
 if __name__ == '__main__':
