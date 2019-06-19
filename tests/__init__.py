@@ -3,7 +3,9 @@ import logging
 from flask import Response
 try:
     import server
-except ImportError, ModuleNotFoundError:
+except ImportError:
+    raise OSError("Failed to import the server module. Have you installed it?")
+except ModuleNotFoundError:
     raise OSError("Failed to import the server module. Have you installed it?")
 
 class Tests(unittest.TestCase):
