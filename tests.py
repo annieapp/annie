@@ -14,9 +14,6 @@ class Tests(unittest.TestCase):
 
     def test_env(self):
         self.assertTrue(self.app.config['TESTING'])
-
-    def test_basic_app_values(self):
-        self.assertIsNotNone(self.client)
         
     def test_key_generation(self):
         self.assertEqual(len(server.genkey()), 15)
