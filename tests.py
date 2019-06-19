@@ -10,10 +10,10 @@ class Tests(unittest.TestCase):
     def setUp(self):
         self.app = server.application
 
-    def key_generation(self):
+    def test_key_generation(self):
         self.assertEqual(len(self.app.genkey()), 15)
 
-    def common_errors(self):
+    def test_common_errors(self):
         self.assertEqual(
             Response(
                 json.dumps({
@@ -39,7 +39,7 @@ class Tests(unittest.TestCase):
             self.app.private_key_error()
         )
 
-    def logger(self):
+    def test_logger(self):
         self.assertIsInstance(self.app.logger, logging.Logger)
         self.assertNotNone(self.app.logger)
 
