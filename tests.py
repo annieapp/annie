@@ -56,7 +56,9 @@ class Tests(unittest.TestCase):
             jdata = json.load(self.client.get("/connect", params={"key": self.tempauth[0]})),
             self.assertIn(
                 jdata['result']
-                {"fail": false}
+                json.dumps({
+                    "result": {"fail": false}
+                })
             )
 
     @unittest.skipIf(os.getenv("UNITTESTS_FAST_RUN") != None, "Fast run on")
