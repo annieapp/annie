@@ -1,5 +1,7 @@
 import unittest
 import logging
+import sys
+import os
 from lcbools import true, false
 
 try:
@@ -9,6 +11,7 @@ except ImportError:
 
 class Tests(unittest.TestCase):
     def setUp(self):
+        self.tested_keys = []
         self.app = server.application
         self.app.config['TESTING'] = True
 
@@ -18,6 +21,16 @@ class Tests(unittest.TestCase):
     def test_key_generation(self):
         self.assertEqual(len(server.genkey()), 15)
 
+    @unittest.skipIf(os.getenv("CI") == None, "Not in CI")
+    def test_key_generation_randomness(self):
+        for i in range(1000000):
+            tmp = server.genkey()
+            self.assertIsNotNone(tmp)
+            self.tested_keys.append(tmp)
+            if len(self.tested_keys) > 2:
+                for p, l in enumerate(self.tested_keys):
+                    self.assertNotEqual(tmp, self.tested_keys[p])
+        
     def test_lowercase_boolean_values(self):
         self.assertTrue(true)
         self.assertFalse(false)
@@ -25,6 +38,13 @@ class Tests(unittest.TestCase):
     def test_logger(self):
         self.assertIsInstance(self.app.logger, logging.Logger)
         self.assertIsNotNone(self.app.logger)
+
+    @unittest.skipIf(os.getenv("CI") == None, "Not in CI")
+    def test_logger_in_ci(self):
+        self.app.logger.setLevel(logging.DEBUG)
+        self.assertEqual(self.app.logger.getEffectiveLevel(), logging.DEBUG)
+        self.app.logger.addHandler(logging.StreamHandler(sys.stdout))
+        self.assertTrue(self.app.logger.hasHandlers())
 
 
 if __name__ == '__main__':
