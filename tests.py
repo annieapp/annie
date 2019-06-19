@@ -2,6 +2,7 @@ import unittest
 import logging
 import os
 import json
+import ast
 from lcbools import true, false
 
 try:
@@ -35,7 +36,7 @@ class Tests(unittest.TestCase):
     @unittest.skipIf(os.getenv("UNITTESTS_FAST_RUN") != None, "Fast run on")
     def test_status_endpoint(self):
         self.assertEqual(
-            json.load(self.client.get("/").data.decode('utf-8')),
+            json.load(ast.literal_eval(self.client.get("/").data.decode('utf-8'))),
             json.dumps({
                 "status": "analytics server online"
             })
