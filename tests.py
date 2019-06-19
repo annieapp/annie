@@ -3,6 +3,7 @@ import logging
 import json
 from lcbools import true, false
 from flask import Response
+
 try:
     import server
 except ImportError:
@@ -30,7 +31,7 @@ class Tests(unittest.TestCase):
                 }),
                 mimetype='application/json'
             ),
-            self.app.public_key_error()
+            server.public_key_error()
         )
         self.assertEqual(
             Response(
@@ -42,7 +43,7 @@ class Tests(unittest.TestCase):
                 }),
                 mimetype='application/json'
             ),
-            self.app.private_key_error()
+            server.private_key_error()
         )
 
     def test_logger(self):
