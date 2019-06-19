@@ -82,7 +82,7 @@ setuptools.setup(
     license="See https://github.com/annieapp/annie/blob/master/LICENSE",
     url="https://annieapp.co",
     author_email="me@rdil.rocks",
-    packages=setuptools.find_packages(),
+    packages=setuptools.find_packages(exclude=["docs", "tests", "frontend"]),
     include_package_data=True,
     zip_safe=False,
     install_requires=[
