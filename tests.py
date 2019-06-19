@@ -31,7 +31,7 @@ class Tests(unittest.TestCase):
     @unittest.skipIf(os.getenv("CI") == None, "Not in CI")
     def test_logger_in_ci(self):
         self.app.logger.setLevel(logging.DEBUG)
-        self.assertEqual(self.app.logger.getEffectiveLevel(), logging.debug)
+        self.assertEqual(self.app.logger.getEffectiveLevel(), logging.DEBUG)
         self.app.logger.addHandler(logging.StreamHandler(sys.stdout))
         self.assertTrue(self.app.logger.hasHandlers())
 
