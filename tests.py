@@ -10,7 +10,11 @@ except ImportError:
 class Tests(unittest.TestCase):
     def setUp(self):
         self.app = server.application
+        self.app.config['TESTING'] = True
 
+    def test_env(self):
+        self.assertTrue(self.app.config['TESTING'])
+        
     def test_key_generation(self):
         self.assertEqual(len(server.genkey()), 15)
 
