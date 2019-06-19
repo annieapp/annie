@@ -26,7 +26,7 @@ FROM THE ANNIE TEAM.
 from datetime import datetime
 from flask import Flask, render_template, request, Response
 from lcbools import true, false
-import config as opts
+import .config as opts
 import random
 import json
 import logging
