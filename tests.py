@@ -5,8 +5,6 @@ try:
     import server
 except ImportError:
     raise OSError("Failed to import the server module. Have you installed it?")
-except ModuleNotFoundError:
-    raise OSError("Failed to import the server module. Have you installed it?")
 
 class Tests(unittest.TestCase):
     def setUp(self):
