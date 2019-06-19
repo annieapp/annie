@@ -26,10 +26,10 @@ class Tests(unittest.TestCase):
         for i in range(1000000):
             tmp = server.genkey()
             self.assertIsNotNone(tmp)
-            self.tested_keys.append(tmp)
             if len(self.tested_keys) > 2:
                 for p, l in enumerate(self.tested_keys):
                     self.assertNotEqual(tmp, self.tested_keys[p])
+                    self.tested_keys.append(tmp)
         
     def test_lowercase_boolean_values(self):
         self.assertTrue(true)
