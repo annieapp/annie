@@ -82,7 +82,6 @@ setuptools.setup(
     description="Annie Server",
     license="See https://github.com/annieapp/annie/blob/master/LICENSE",
     url="https://annieapp.co",
-    author_email="me@rdil.rocks",
     packages=setuptools.find_packages(exclude=["docs", "frontend"]),
     include_package_data=True,
     zip_safe=False,
