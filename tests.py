@@ -1,8 +1,5 @@
 import unittest
 import logging
-import os
-import json
-import ast
 from lcbools import true, false
 
 try:
@@ -14,7 +11,6 @@ class Tests(unittest.TestCase):
     def setUp(self):
         self.app = server.application
         self.app.config['TESTING'] = True
-        self.client = self.app.test_client()
 
     def test_env(self):
         self.assertTrue(self.app.config['TESTING'])
@@ -32,15 +28,6 @@ class Tests(unittest.TestCase):
     def test_logger(self):
         self.assertIsInstance(self.app.logger, logging.Logger)
         self.assertIsNotNone(self.app.logger)
-
-    @unittest.skipIf(os.getenv("UNITTESTS_FAST_RUN") != None, "Fast run on")
-    def test_status_endpoint(self):
-        self.assertEqual(
-            json.load(ast.literal_eval(self.client.get("/").data.decode('utf-8'))),
-            json.dumps({
-                "status": "analytics server online"
-            })
-        )
 
 
 if __name__ == '__main__':
