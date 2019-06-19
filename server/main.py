@@ -41,6 +41,29 @@ if opts.verbose:
 app.logger.addHandler(logging.FileHandler(filename='annie_backend.log', encoding='utf-8', mode='w'))
 
 
+def public_key_error():
+    return Response(
+        json.dumps({
+            "result": {
+                "fail": true,
+                "message": "Invalid or missing public key"
+            }
+        }),
+        mimetype='application/json'
+    )
+
+def private_key_error():
+    return Response(
+        json.dumps({
+            "result": {
+                "fail": true,
+                "message": "Invalid or missing private key"
+            }
+        }),
+        mimetype='application/json'
+    )
+
+
 def genkey():
     return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(15))
 
@@ -121,25 +144,9 @@ def delkey():
                 mimetype='application/json'
             )
         else:
-            return Response(
-                json.dumps({
-                    "result": {
-                        "fail": true
-                    },
-                    "message": "Invalid private key"
-                }),
-                mimetype='application/json'
-            )
+            return private_key_error()
     except KeyError:
-        return Response(
-            json.dumps({
-                "result": {
-                    "fail": true
-                },
-                "message": "Public key not valid"
-            }),
-            mimetype='application/json'
-        )
+        return public_key_error()
 
 
 @app.route("/connect", methods=["GET", "POST"])
@@ -153,15 +160,7 @@ def connect():
         with open('stats.info', 'w') as w:
             json.dump(data, w)
     except:
-        return Response(
-            json.dumps({
-                "result": {
-                    "fail": true
-                },
-                "message": "Invalid or missing API key"
-            }),
-            mimetype='application/json'
-        )
+        return public_key_error()
 
     return Response(
         json.dumps({
@@ -191,25 +190,9 @@ def stats():
                 }),
                 mimetype='application/json'
             )
-        return Response(
-            json.dumps({
-                "result": {
-                    "fail": true,
-                    "message": "Invalid or missing private key"
-                }
-            }),
-            mimetype='application/json'
-        )
+        return private_key_error()
     except:
-        return Response(
-            json.dumps({
-                "result": {
-                    "fail": true,
-                    "message": "Invalid or missing public key"
-                }
-            }),
-            mimetype='application/json'
-        )
+        return public_key_error()
 
 
 @app.errorhandler(403)
