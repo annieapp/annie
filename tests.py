@@ -1,6 +1,5 @@
 import unittest
 import logging
-import json
 from lcbools import true, false
 
 try:
