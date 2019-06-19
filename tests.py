@@ -1,5 +1,6 @@
 import unittest
 import logging
+import sys
 import os
 from lcbools import true, false
 
@@ -31,6 +32,8 @@ class Tests(unittest.TestCase):
     def test_logger_in_ci(self):
         app.logger.setLevel(logging.DEBUG)
         self.assertEqual(app.logger.getEffectiveLevel(), logging.debug)
+        app.logger.addHandler(logging.StreamHandler(sys.stdout))
+        self.assertTrue(app.logger.hasHandlers())
 
 
 if __name__ == '__main__':
