@@ -1,5 +1,4 @@
 graft server/templates
-graft server/static
 graft server
 global-exclude *.pyc
 include LICENSE
