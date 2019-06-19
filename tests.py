@@ -41,38 +41,6 @@ class Tests(unittest.TestCase):
             })
         )
 
-    @unittest.skipIf(os.getenv("UNITTESTS_FAST_RUN") != None, "Fast run on")
-    def test_key_creation(self):
-        data = json.load(self.client.get("/keys/new"))
-        self.tempauth = [
-            data['result']['auth']['key'],
-            data['result']['auth']['private-key']
-        ]
-        for i, z in enumerate(self.tempauth):
-            self.assertIsNotNone(self.tempauth[i])
-
-    @unittest.skipIf(os.getenv("UNITTESTS_FAST_RUN") != None, "Fast run on")
-    def test_key_connection(self):
-        for i in range(18):
-            jdata = json.load(self.client.get("/connect", params={"key": self.tempauth[0]})),
-            self.assertIn(
-                jdata['result'],
-                json.dumps({
-                    "result": {"fail": false}
-                })
-            )
-
-    @unittest.skipIf(os.getenv("UNITTESTS_FAST_RUN") != None, "Fast run on")
-    def test_key_deletion(self):
-        self.assertEqual(
-            json.load(self.client.get("/keys/delete", params={"key": self.tempauth[0], "private": self.tempauth[1]})),
-            json.dumps({
-                "result": {
-                    "fail": false
-                }
-            })
-        )
-
 
 if __name__ == '__main__':
     unittest.main()
