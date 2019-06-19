@@ -212,41 +212,6 @@ def stats():
         )
 
 
-@app.route("/stats", methods=["GET", "POST"])
-def statistics_visual():
-    try:
-        with open('stats.info') as f:
-            data = json.load(f)
-        key = request.args.get("key", type=str)
-        private = request.args.get("private", type=str)
-        if data[key][1] == private:
-            return render_template(
-                "index.html",
-                key=key,
-                joinscount=data[key][0],
-                latestjoindate=data[key][2]
-            )
-        return Response(
-            json.dumps({
-                "result": {
-                    "fail": true,
-                    "message": "Invalid or missing private key"
-                }
-            }),
-            mimetype='application/json'
-        )
-    except:
-        return Response(
-            json.dumps({
-                "result": {
-                    "fail": true,
-                    "message": "Invalid or missing public key"
-                }
-            }),
-            mimetype='application/json'
-        )
-
-
 @app.errorhandler(403)
 def access_denied(error):
     return render_template(
