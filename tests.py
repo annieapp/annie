@@ -44,7 +44,7 @@ class Tests(unittest.TestCase):
     def test_key_creation(self):
         data = json.load(self.client.get("/keys/new"))
         self.tempauth = [
-            data['result']['auth']['key']
+            data['result']['auth']['key'],
             data['result']['auth']['private-key']
         ]
         for i, z in enumerate(self.tempauth):
