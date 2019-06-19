@@ -1,5 +1,6 @@
 import unittest
 import logging
+import os
 from lcbools import true, false
 
 try:
@@ -25,6 +26,11 @@ class Tests(unittest.TestCase):
     def test_logger(self):
         self.assertIsInstance(self.app.logger, logging.Logger)
         self.assertIsNotNone(self.app.logger)
+
+    @unittest.skipIf(os.getenv("CI") == None, "Not in CI")
+    def test_logger_in_ci(self):
+        app.logger.setLevel(logging.DEBUG)
+        self.assertEqual(app.logger.getEffectiveLevel(), logging.debug)
 
 
 if __name__ == '__main__':
