@@ -26,7 +26,7 @@ FROM THE ANNIE TEAM.
 from datetime import datetime
 from flask import Flask, render_template, request, Response
 from lcbools import true, false
-import .config as opts
+from .config import verbose, manual_keygen
 import random
 import json
 import logging
@@ -35,7 +35,7 @@ import string
 
 app = Flask(__name__)
 
-if opts.verbose:
+if verbose:
     app.logger.setLevel(logging.DEBUG)
     app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.addHandler(logging.FileHandler(filename='annie_backend.log', encoding='utf-8', mode='w'))
@@ -51,6 +51,7 @@ def public_key_error():
         }),
         mimetype='application/json'
     )
+
 
 def private_key_error():
     return Response(
@@ -88,7 +89,7 @@ def disallow_search_engine_crawling():
 
 @app.route("/keys/new", methods=["GET", "POST"])
 def new_key():
-    if opts.manual_keygen:
+    if manual_keygen:
         return Response(
             json.dumps({
                 "result": {
