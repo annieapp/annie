@@ -2,7 +2,6 @@ import unittest
 import logging
 import json
 from lcbools import true, false
-from flask import Response
 
 try:
     import server
@@ -19,32 +18,6 @@ class Tests(unittest.TestCase):
     def test_lowercase_boolean_values(self):
         self.assertTrue(true)
         self.assertFalse(false)
-
-    def test_common_errors(self):
-        self.assertEqual(
-            Response(
-                json.dumps({
-                    "result": {
-                        "fail": true,
-                        "message": "Invalid or missing public key"
-                    }
-                }),
-                mimetype='application/json'
-            ),
-            server.public_key_error()
-        )
-        self.assertEqual(
-            Response(
-                json.dumps({
-                    "result": {
-                        "fail": true,
-                        "message": "Invalid or missing private key"
-                    }
-                }),
-                mimetype='application/json'
-            ),
-            server.private_key_error()
-        )
 
     def test_logger(self):
         self.assertIsInstance(self.app.logger, logging.Logger)
