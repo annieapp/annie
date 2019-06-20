@@ -15,5 +15,4 @@ Annie requires you to agree to the following terms and limitation before you can
 
 1. You will need to head to the [releases section](https://github.com/annieapp/annie/releases) and download the `annie-server` ZIP or TAR archive.
 1. Extract the files from the downloaded archive.
-1. Adjust the `config.py` to your liking.
-1. You will need to set up WSGI (we have a template in the `wsgi.py` file). We aren't going to explain it here, but once you get it set up and start the server, you should be ready to use the [API](./api.md).
+1. You will need to set up WSGI (we have a template in the `wsgi.py` file). We aren't going to explain it here, but once you get it set up and start the server, you should be ready to use the [API](./api.md) on your endpoint URL.
