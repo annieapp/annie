@@ -42,6 +42,12 @@ app.logger.addHandler(logging.FileHandler(filename='annie_backend.log', encoding
 
 
 def public_key_error():
+    """
+    Method to get common response for public key errors.
+
+    :return: the flask.Response object
+    :rtype flask.Response:
+    """
     return Response(
         json.dumps({
             "result": {
@@ -54,6 +60,12 @@ def public_key_error():
 
 
 def private_key_error():
+    """
+    Method to get common response for private key errors.
+
+    :return: the flask.Response object
+    :rtype flask.Response:
+    """
     return Response(
         json.dumps({
             "result": {
@@ -66,11 +78,20 @@ def private_key_error():
 
 
 def genkey():
+    """
+    Generate new random API key
+
+    :return: key
+    :rtype str:
+    """
     return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(15))
 
 
 @app.route("/", methods=["GET"])
 def base():
+    """
+    Basic status endpoint.
+    """
     return Response(
         json.dumps({
             "status": "analytics server online"
@@ -81,6 +102,9 @@ def base():
 
 @app.route("/robots.txt", methods=["GET"])
 def disallow_search_engine_crawling():
+    """
+    Prevents common search engines from crawling the server.
+    """
     return Response(
         render_template("robots.txt"),
         mimetype="text/plain"
@@ -89,6 +113,9 @@ def disallow_search_engine_crawling():
 
 @app.route("/keys/new", methods=["GET", "POST"])
 def new_key():
+    """
+    Get a new key.
+    """
     with open('stats.info') as f:
         data = json.load(f)
 
@@ -115,6 +142,12 @@ def new_key():
 
 @app.route("/keys/delete", methods=["GET", "POST"])
 def delkey():
+    """
+    Delete a key
+
+    :param key: public key
+    :param private: private key
+    """
     with open("stats.info", "r") as f:
         data = json.load(f)
     thekey = request.args.get("key", type=str)
@@ -141,6 +174,11 @@ def delkey():
 
 @app.route("/connect", methods=["GET", "POST"])
 def connect():
+    """
+    Log a connection to a keyset.
+
+    :param key: the public key
+    """
     try:
         with open('stats.info') as f:
             data = json.load(f)
@@ -164,6 +202,12 @@ def connect():
 
 @app.route("/stats.json", methods=["GET", "POST"])
 def stats():
+    """
+    Stats as a JSON endpoint.
+
+    :param key: public key
+    :param private: private key
+    """
     try:
         with open('stats.info') as f:
             data = json.load(f)
@@ -187,6 +231,9 @@ def stats():
 
 @app.errorhandler(403)
 def access_denied(error):
+    """
+    Called upon 403 error.
+    """
     return render_template(
         "error.html",
         code="403",
@@ -196,6 +243,9 @@ def access_denied(error):
 
 @app.errorhandler(404)
 def page_not_found(error):
+    """
+    Called upon 404 error.
+    """
     return render_template(
         "error.html",
         code="404",
@@ -205,6 +255,9 @@ def page_not_found(error):
 
 @app.errorhandler(500)
 def internal_server_exception(error):
+    """
+    Called upon 500 error.
+    """
     return render_template(
         "error.html",
         code="500",
