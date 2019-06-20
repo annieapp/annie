@@ -26,16 +26,16 @@ FROM THE ANNIE TEAM.
 from datetime import datetime
 from flask import Flask, render_template, request, Response
 from lcbools import true, false
-from .config import verbose, manual_keygen
 import random
 import json
 import logging
 import sys
+import os
 import string
 
 app = Flask(__name__)
 
-if verbose:
+if os.getenv("CI") == None:
     app.logger.setLevel(logging.DEBUG)
     app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.addHandler(logging.FileHandler(filename='annie_backend.log', encoding='utf-8', mode='w'))
@@ -89,17 +89,6 @@ def disallow_search_engine_crawling():
 
 @app.route("/keys/new", methods=["GET", "POST"])
 def new_key():
-    if manual_keygen:
-        return Response(
-            json.dumps({
-                "result": {
-                    "fail": true
-                },
-                "message": "the owner of this Annie server has disabled easy key signups in the config."
-            }),
-            mimetype='application/json'
-        )
-
     with open('stats.info') as f:
         data = json.load(f)
 
@@ -224,4 +213,4 @@ def internal_server_exception(error):
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=opts.dev_port)
+    app.run(host='0.0.0.0', port=2000)

@@ -11,6 +11,7 @@ except ImportError:
 
 class Tests(unittest.TestCase):
     def setUp(self):
+        self.tested_keys = []
         self.app = server.application
         self.app.config['TESTING'] = True
 
@@ -20,6 +21,16 @@ class Tests(unittest.TestCase):
     def test_key_generation(self):
         self.assertEqual(len(server.genkey()), 15)
 
+    @unittest.skipIf(os.getenv("CI") == None, "Not in CI")
+    def test_key_generation_randomness(self):
+        for i in range(1000000):
+            tmp = server.genkey()
+            self.assertIsNotNone(tmp)
+            if len(self.tested_keys) > 2:
+                for p, l in enumerate(self.tested_keys):
+                    self.assertNotEqual(tmp, self.tested_keys[p])
+                    self.tested_keys.append(tmp)
+        
     def test_lowercase_boolean_values(self):
         self.assertTrue(true)
         self.assertFalse(false)
