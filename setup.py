@@ -76,7 +76,7 @@ URLs = \
 
 setuptools.setup(
     name='annie-server',
-    version='1.3.0',
+    version='1.3.1',
     author="Annie Team",
     author_email="support@rdil.rocks",
     description="Annie Server",
