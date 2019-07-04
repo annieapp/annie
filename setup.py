@@ -86,7 +86,7 @@ setuptools.setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        "Flask==1.0.3",
+        "Flask==1.1.0",
         "lcbools>=1.0.2"
     ],
     classifiers=CLASSIFIERS,
