@@ -241,6 +241,18 @@ def access_denied(error):
     ), 403
 
 
+@app.errorhandler(401)
+def access_denied_secondary(error):
+    """
+    Called upon 401 error.
+    """
+    return render_template(
+        "error.html",
+        code="401",
+        desc="Oh no, looks like you don't have permission to do that."
+    ), 401
+
+
 @app.errorhandler(404)
 def page_not_found(error):
     """
