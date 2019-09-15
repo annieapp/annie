@@ -57,7 +57,7 @@ nav:
   - 'API': api.md
   - 'Self Hosting (Optional)': selfhost.md
   - 'Developer Portal': development.md
-  - 'Implmentation Examples': examples.md
+  - 'Implementation Examples': examples.md
   - 'FAQ': faq.md
   - 'Security Policy': security.md
   - 'Contributor Code of Conduct': code_of_conduct.md
