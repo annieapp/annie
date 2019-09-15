@@ -20,7 +20,7 @@ docs_test_task:
 
 frontend_tests_task:
   container:
-    image: ruby:2.6-slim
+    image: ruby:slim
   env:
     JEKYLL_ENV: production
     NOKOGIRI_USE_SYSTEM_LIBRARIES: false
