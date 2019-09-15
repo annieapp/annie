@@ -3,7 +3,7 @@ container:
 
 docs_deploy_task:
   env:
-    DEPLOY_TOKEN: ENCRYPTED[8b719b51d75561d87baa92c15925d77ddce4a78bd31b1b87b48f1ca0931bd7b968357edf401e0ecbc2a0e8c49ea8cbff]
+    DEPLOY_TOKEN: ENCRYPTED[0d121d1e9764189e4cbf48fc268ef2aafcbc49b2a73e5a217e174c16d18f96ca60329db1c78f42e2c73f46f0cc2fb75a]
   install_script: pip install --upgrade pymdown-extensions
   skip: $CIRRUS_BRANCH != 'master'
   deploy_script: |
