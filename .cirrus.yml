@@ -1,5 +1,5 @@
 container:
-  image: squidfunk/mkdocs-material:4.4.2
+  image: squidfunk/mkdocs-material:4.5.-
 
 docs_deploy_task:
   env:
@@ -47,10 +47,7 @@ server_beta_task:
 server_unittests_task:
   container:
     image: python:slim
-  python_packages_cache:
-    folder: /usr/local/lib/python3.7/site-packages
-    fingerprint_script: cat requirements.txt && cat .cirrus.yml
-    populate_script: python3 -m pip install --upgrade -r requirements.txt
+  populate_script: python3 -m pip install --upgrade -r requirements.txt
   prep_script: python3 -m pip install --user --upgrade .
   script: python3 -m xmlrunner tests
   always:
