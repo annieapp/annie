@@ -1,0 +1,8 @@
+{
+  "name": "Annie",
+  "short_name": "Annie",
+  "lang": "en-US",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any"
+}
