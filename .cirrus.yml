@@ -1,5 +1,5 @@
 container:
-  image: squidfunk/mkdocs-material:4.5.-
+  image: squidfunk/mkdocs-material:4.5.0
 
 docs_deploy_task:
   env:
